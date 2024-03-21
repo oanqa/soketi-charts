@@ -120,6 +120,11 @@ spec:
             {{- with .Values.app.extraEnv }}
             {{- toYaml . | nindent 12 }}
             {{- end }}
+          envFrom:
+            {{- range .Values.app.extraEnvVarsSecret }}
+            - secretRef:
+                name: {{ . }}
+            {{- end }}
           {{- with .Values.livenessProbe }}
           livenessProbe:
             {{- toYaml . | nindent 12 }}

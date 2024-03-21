@@ -36,6 +36,9 @@ app:
     - /app/bin/server.js
     - start
 
+  # Add extra env vars secret to the soketi container.
+  extraEnvVarsSecret: []
+
   # Add extra env to the soketi container.
   extraEnv: []
   # - name: POD_ID
